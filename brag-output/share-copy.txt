@@ -1,0 +1,4 @@
+19% of Class 5 students in Karnataka can solve division word problems. We built StoryMath to decouple mathematical structures from surface stories using a 5-step cognitive diagnostic scaffold, interactive bar models, and a Gemini AI pedagogical copilot.
+
+Try it live: https://storymath-six.vercel.app/
+#CraftNCode #EdTech #KarnatakaEducation #AIForEducation

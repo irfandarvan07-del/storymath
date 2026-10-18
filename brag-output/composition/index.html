@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>StoryMath · Launch Reel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html, body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #070913;
+        font-family: 'Plus Jakarta Sans', Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+        color: #F8FAFC;
+        -webkit-font-smoothing: antialiased;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background: radial-gradient(circle at 50% 30%, #151b33 0%, #070913 80%);
+        overflow: hidden;
+      }
+
+      /* Ambient grid */
+      .grid-layer {
+        position: absolute;
+        inset: 0;
+        background-size: 60px 60px;
+        background-image: 
+          linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+        mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 85%);
+      }
+
+      /* Glowing background orbs */
+      .glow-orb {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(120px);
+        pointer-events: none;
+      }
+      .orb-1 {
+        width: 600px;
+        height: 600px;
+        background: rgba(99, 102, 241, 0.22);
+        top: -100px;
+        left: 200px;
+      }
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: rgba(16, 185, 129, 0.18);
+        bottom: -80px;
+        right: 250px;
+      }
+
+      /* Scene container */
+      .scene {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 120px;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      /* Badges */
+      .stat-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 24px;
+        border-radius: 9999px;
+        background: rgba(99, 102, 241, 0.15);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        color: #A5B4FC;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
+      }
+      .alert-badge {
+        background: rgba(244, 63, 94, 0.15);
+        border-color: rgba(244, 63, 94, 0.4);
+        color: #FDA4AF;
+        box-shadow: 0 0 25px rgba(244, 63, 94, 0.25);
+      }
+      .success-badge {
+        background: rgba(16, 185, 129, 0.15);
+        border-color: rgba(16, 185, 129, 0.4);
+        color: #6EE7B7;
+        box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
+      }
+
+      /* Glass Cards */
+      .glass-card {
+        background: rgba(22, 27, 46, 0.7);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Typography */
+      .headline-hero {
+        font-size: 82px;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        text-align: center;
+        background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 60%, #94A3B8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .subhead-hero {
+        font-size: 32px;
+        font-weight: 500;
+        color: #94A3B8;
+        text-align: center;
+        max-width: 1200px;
+        line-height: 1.4;
+      }
+      .gradient-indigo {
+        background: linear-gradient(135deg, #818CF8 0%, #6366F1 50%, #4F46E5 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .gradient-emerald {
+        background: linear-gradient(135deg, #34D399 0%, #10B981 50%, #059669 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* 5-Step Stepper */
+      .step-pill {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 20px;
+        border-radius: 20px;
+        background: rgba(30, 41, 59, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        width: 280px;
+        text-align: center;
+      }
+      .step-num {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #6366F1;
+        color: white;
+        font-weight: 800;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      }
+
+      /* Animated Bar Model */
+      .bar-model-container {
+        display: flex;
+        width: 700px;
+        height: 64px;
+        border-radius: 14px;
+        overflow: hidden;
+        border: 2px solid rgba(99, 102, 241, 0.5);
+        background: rgba(15, 23, 42, 0.8);
+        box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+      }
+      .bar-segment {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 22px;
+        color: white;
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.6), rgba(79, 70, 229, 0.8));
+        border-right: 2px solid rgba(255, 255, 255, 0.15);
+      }
+      .bar-segment:last-child {
+        border-right: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="20"
+      data-width="1920"
+      data-height="1080"
+    >
+      <div class="grid-layer"></div>
+      <div class="glow-orb orb-1" data-layout-allow-overflow></div>
+      <div class="glow-orb orb-2" data-layout-allow-overflow></div>
+
+      <!-- AUDIO TRACKS -->
+      <audio
+        id="bg-music"
+        data-start="0"
+        data-duration="20"
+        data-track-index="10"
+        data-volume="0.38"
+        src="assets/music/happy-beats-business-moves-vol-12-by-ende-dot-app.mp3"
+      ></audio>
+
+      <audio
+        id="sfx-bell-start"
+        data-start="0.1"
+        data-duration="1.48"
+        data-track-index="11"
+        data-volume="0.65"
+        src="assets/sfx/impact/impactBell_heavy_000.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-card-slide"
+        data-start="4.6"
+        data-duration="0.60"
+        data-track-index="12"
+        data-volume="0.6"
+        src="assets/sfx/casino/card-slide-1.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-click-1"
+        data-start="9.2"
+        data-duration="0.05"
+        data-track-index="13"
+        data-volume="0.5"
+        src="assets/sfx/interface/click_002.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-click-2"
+        data-start="11.4"
+        data-duration="0.05"
+        data-track-index="14"
+        data-volume="0.5"
+        src="assets/sfx/interface/click_002.ogg"
+      ></audio>
+
+      <audio
+        id="sfx-bell-end"
+        data-start="17.6"
+        data-duration="1.48"
+        data-track-index="15"
+        data-volume="0.75"
+        src="assets/sfx/impact/impactBell_heavy_000.ogg"
+      ></audio>
+
+      <!-- ======================================================== -->
+      <!-- SCENE 1: THE CRISIS (0.0s – 4.5s)                        -->
+      <!-- ======================================================== -->
+      <div id="scene-1" class="scene">
+        <div id="s1-badge" class="stat-badge alert-badge" style="margin-bottom: 28px;">
+          <span>🚨 ASER 2024 · Karnataka Government Schools</span>
+        </div>
+        <h1 id="s1-stat" class="headline-hero" style="margin-bottom: 24px;">
+          Only <span class="gradient-indigo" style="font-size: 110px;">19.0%</span> of Class 5 Students<br>
+          Can Solve a Division Word Problem
+        </h1>
+        <div id="s1-card" class="glass-card" style="padding: 28px 48px; max-width: 1040px; text-align: center; border-color: rgba(244, 63, 94, 0.3);">
+          <p style="font-size: 30px; font-weight: 600; color: #F1F5F9; line-height: 1.4;">
+            Traditional testing gives a score of <strong>0 / 1</strong>.<br>
+            <span style="color: #94A3B8; font-weight: 400; font-size: 26px;">It gives zero clue whether the child stumbled on reading, operation choice, or arithmetic.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SCENE 2: THE BREAKTHROUGH (4.5s – 9.0s)                  -->
+      <!-- ======================================================== -->
+      <div id="scene-2" class="scene">
+        <div id="s2-badge" class="stat-badge" style="margin-bottom: 24px;">
+          <span>💡 Introducing StoryMath</span>
+        </div>
+        <h1 id="s2-title" class="headline-hero" style="font-size: 96px; margin-bottom: 16px;">
+          Same Maths. <span class="gradient-emerald">Different Story.</span>
+        </h1>
+        <p id="s2-sub" class="subhead-hero" style="margin-bottom: 40px;">
+          Decoupling underlying mathematical schemas from surface narratives in <strong>English & ಕನ್ನಡ</strong>.
+        </p>
+
+        <!-- Two Stories Comparison Cards -->
+        <div id="s2-cards" style="display: flex; gap: 36px; align-items: center;">
+          <div class="glass-card" style="padding: 28px 32px; width: 520px; border-left: 6px solid #6366F1;">
+            <div style="font-size: 16px; font-weight: 700; color: #818CF8; margin-bottom: 10px; text-transform: uppercase;">Story A · Channapatna Toys</div>
+            <p style="font-size: 22px; color: #E2E8F0; line-height: 1.4;">
+              "An artisan crafts <strong>24 wooden dolls</strong> and shares them equally among <strong>6 village stalls</strong>."
+            </p>
+          </div>
+
+          <div style="font-size: 32px; font-weight: 900; color: #10B981; padding: 14px 20px; background: rgba(16, 185, 129, 0.15); border-radius: 50%; border: 1px solid rgba(16, 185, 129, 0.4);">
+            =
+          </div>
+
+          <div class="glass-card" style="padding: 28px 32px; width: 520px; border-left: 6px solid #10B981;">
+            <div style="font-size: 16px; font-weight: 700; color: #34D399; margin-bottom: 10px; text-transform: uppercase;">Story B · Mysuru Pak Sweets</div>
+            <p style="font-size: 22px; color: #E2E8F0; line-height: 1.4;">
+              "A baker packs <strong>24 pieces of sweet</strong> into <strong>6 festive gift boxes</strong> of equal size."
+            </p>
+          </div>
+        </div>
+
+        <div id="s2-schema-pill" style="margin-top: 32px; padding: 12px 32px; border-radius: 9999px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); color: #6EE7B7; font-weight: 700; font-size: 22px;">
+          ✦ Invariant Mathematical Structure: Total ÷ Groups = Units per Group
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SCENE 3: 5-STEP DIAGNOSTIC PIPELINE (9.0s – 14.5s)       -->
+      <!-- ======================================================== -->
+      <div id="scene-3" class="scene">
+        <div id="s3-badge" class="stat-badge success-badge" style="margin-bottom: 24px;">
+          <span>🎯 Pedagogical Architecture</span>
+        </div>
+        <h1 id="s3-title" class="headline-hero" style="font-size: 72px; margin-bottom: 16px;">
+          5-Step Cognitive Diagnostic Pipeline
+        </h1>
+        <p id="s3-sub" class="subhead-hero" style="margin-bottom: 40px; font-size: 26px;">
+          Isolating the exact breakpoint: Comprehension → Representation → Arithmetic → Transfer.
+        </p>
+
+        <!-- 5 Steps Grid -->
+        <div id="s3-steps" style="display: flex; gap: 20px; margin-bottom: 36px;">
+          <div class="step-pill">
+            <div class="step-num">1</div>
+            <div style="font-weight: 700; font-size: 20px; color: #F8FAFC; margin-bottom: 6px;">Bilingual Read</div>
+            <div style="font-size: 15px; color: #94A3B8;">English & ಕನ್ನಡ local narratives</div>
+          </div>
+          <div class="step-pill" style="border-color: rgba(99, 102, 241, 0.4);">
+            <div class="step-num" style="background: #4F46E5;">2</div>
+            <div style="font-weight: 700; font-size: 20px; color: #A5B4FC; margin-bottom: 6px;">Given vs Asked</div>
+            <div style="font-size: 15px; color: #94A3B8;">Entity & fact extraction chips</div>
+          </div>
+          <div class="step-pill" style="border-color: rgba(16, 185, 129, 0.5); background: rgba(16, 185, 129, 0.1);">
+            <div class="step-num" style="background: #10B981;">3</div>
+            <div style="font-weight: 700; font-size: 20px; color: #6EE7B7; margin-bottom: 6px;">Visual Bar Model</div>
+            <div style="font-size: 15px; color: #A7F3D0;">Interactive manipulatives</div>
+          </div>
+          <div class="step-pill">
+            <div class="step-num">4</div>
+            <div style="font-weight: 700; font-size: 20px; color: #F8FAFC; margin-bottom: 6px;">Formulation</div>
+            <div style="font-size: 15px; color: #94A3B8;">Deterministic server calculation</div>
+          </div>
+          <div class="step-pill">
+            <div class="step-num">5</div>
+            <div style="font-weight: 700; font-size: 20px; color: #F8FAFC; margin-bottom: 6px;">Transfer Test</div>
+            <div style="font-size: 15px; color: #94A3B8;">New story, invariant schema</div>
+          </div>
+        </div>
+
+        <!-- Animated Bar Model Visual -->
+        <div id="s3-visual-model" class="glass-card" style="padding: 20px 40px; display: flex; align-items: center; gap: 28px;">
+          <div style="font-weight: 700; font-size: 20px; color: #818CF8;">Interactive Bar Model:</div>
+          <div class="bar-model-container">
+            <div class="bar-segment">?</div>
+            <div class="bar-segment">?</div>
+            <div class="bar-segment">?</div>
+            <div class="bar-segment">?</div>
+            <div class="bar-segment">?</div>
+            <div class="bar-segment">?</div>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: #34D399;">
+            Total: 24
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SCENE 4: TEACHER DASHBOARD & GEMINI COPILOT (14.5s – 17.5s) -->
+      <!-- ======================================================== -->
+      <div id="scene-4" class="scene">
+        <div id="s4-badge" class="stat-badge" style="margin-bottom: 24px;">
+          <span>📊 Educator Intelligence</span>
+        </div>
+        <h1 id="s4-title" class="headline-hero" style="font-size: 72px; margin-bottom: 16px;">
+          Cohort Heatmaps & <span class="gradient-indigo">Gemini AI Copilot</span>
+        </h1>
+        <p id="s4-sub" class="subhead-hero" style="margin-bottom: 36px; font-size: 26px;">
+          Zero-guesswork analytics backed by Supabase PostgreSQL cloud storage.
+        </p>
+
+        <!-- Two Cards: Matrix + AI Copilot -->
+        <div id="s4-cards" style="display: flex; gap: 36px; width: 1400px;">
+          <!-- Heatmap Card -->
+          <div class="glass-card" style="flex: 1; padding: 32px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <span style="font-weight: 700; font-size: 22px; color: #F1F5F9;">Cohort Failure Matrix (Class 5B)</span>
+              <span style="background: rgba(244, 63, 94, 0.2); color: #FDA4AF; padding: 4px 12px; border-radius: 8px; font-size: 14px; font-weight: 700;">Step 2 Bottleneck Detected</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 16px;">
+              <div style="display: flex; justify-content: space-between; padding: 10px 16px; background: rgba(15, 23, 42, 0.8); border-radius: 8px;">
+                <span style="color: #CBD5E1;">Step 1: Comprehension</span>
+                <span style="color: #34D399; font-weight: 700;">94% Pass</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 16px; background: rgba(244, 63, 94, 0.15); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 8px;">
+                <span style="color: #FDA4AF; font-weight: 700;">Step 2: Given vs Asked</span>
+                <span style="color: #F43F5E; font-weight: 800;">32% Pass (Stuck Point)</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 10px 16px; background: rgba(15, 23, 42, 0.8); border-radius: 8px;">
+                <span style="color: #CBD5E1;">Step 3: Bar Modeling</span>
+                <span style="color: #FBBF24; font-weight: 700;">61% Pass</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- AI Copilot Card -->
+          <div class="glass-card" style="flex: 1; padding: 32px; border-color: rgba(99, 102, 241, 0.4);">
+            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 16px;">
+              <div style="width: 14px; height: 14px; border-radius: 50%; background: #6366F1; box-shadow: 0 0 12px #6366F1;"></div>
+              <span style="font-weight: 800; font-size: 22px; color: #A5B4FC;">Gemini AI Remediation Plan</span>
+            </div>
+            <p style="font-size: 19px; color: #CBD5E1; line-height: 1.5; margin-bottom: 20px;">
+              "Students are confusing given quantities with target quantities. Recommended: <strong>40-Minute Physical Bean-Bag Activity</strong> to ground 'given' items before assigning arithmetic."
+            </p>
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 8px; background: rgba(99, 102, 241, 0.2); color: #C7D2FE; font-size: 15px; font-weight: 600;">
+              ✓ Tailored lesson plan generated in 1.4s
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================== -->
+      <!-- SCENE 5: OUTRO & LIVE CALL-TO-ACTION (17.5s – 20.0s)     -->
+      <!-- ======================================================== -->
+      <div id="scene-5" class="scene">
+        <div id="s5-crest" style="width: 100px; height: 100px; border-radius: 28px; background: linear-gradient(135deg, #6366F1, #10B981); display: flex; align-items: center; justify-content: center; font-size: 50px; font-weight: 900; color: white; margin-bottom: 24px; box-shadow: 0 0 50px rgba(99, 102, 241, 0.6);">
+          ∑
+        </div>
+        <h1 id="s5-title" class="headline-hero" style="font-size: 96px; margin-bottom: 16px;">
+          StoryMath
+        </h1>
+        <p id="s5-tagline" class="subhead-hero" style="font-size: 36px; color: #E2E8F0; margin-bottom: 32px;">
+          Same Maths. Different Story.
+        </p>
+
+        <!-- Live URL Badge -->
+        <div id="s5-url" style="padding: 16px 44px; border-radius: 9999px; background: rgba(99, 102, 241, 0.25); border: 2px solid #818CF8; color: #FFFFFF; font-size: 32px; font-weight: 800; letter-spacing: -0.01em; box-shadow: 0 0 40px rgba(99, 102, 241, 0.4); margin-bottom: 32px;">
+          storymath-six.vercel.app
+        </div>
+
+        <!-- Team Credits -->
+        <div id="s5-credits" style="font-size: 22px; color: #CBD5E1; text-align: center;">
+          <strong style="color: #F8FAFC;">Team Edvance</strong> · RV College of Engineering, Bengaluru<br>
+          <span style="font-size: 18px; color: #CBD5E1;">Craft N Code Karnataka 2026 Qualifier</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- GSAP TIMELINE SCRIPT -->
+    <script>
+      const tl = gsap.timeline({ paused: true });
+
+      // ==========================================================
+      // SCENE 1 (0.0s – 4.5s)
+      // ==========================================================
+      tl.set("#scene-1", { autoAlpha: 1 }, 0);
+      tl.fromTo("#s1-badge", { opacity: 0, y: -30, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 0.2);
+      tl.fromTo("#s1-stat", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.5);
+      tl.fromTo("#s1-card", { opacity: 0, scale: 0.92, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.7, ease: "power2.out" }, 1.0);
+      tl.to("#scene-1", { opacity: 0, scale: 0.96, duration: 0.5, ease: "power2.in" }, 4.1);
+
+      // ==========================================================
+      // SCENE 2 (4.5s – 9.0s)
+      // ==========================================================
+      tl.set("#scene-2", { autoAlpha: 1 }, 4.4);
+      tl.fromTo("#s2-badge", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 4.6);
+      tl.fromTo("#s2-title", { opacity: 0, scale: 0.9, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.7, ease: "back.out(1.2)" }, 4.8);
+      tl.fromTo("#s2-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, 5.2);
+      tl.fromTo("#s2-cards > div", { opacity: 0, y: 40 }, { opacity: 1, y: 0, stagger: 0.15, duration: 0.7, ease: "power3.out" }, 5.5);
+      tl.fromTo("#s2-schema-pill", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.4)" }, 6.2);
+      tl.to("#scene-2", { opacity: 0, scale: 0.96, duration: 0.5, ease: "power2.in" }, 8.6);
+
+      // ==========================================================
+      // SCENE 3 (9.0s – 14.5s)
+      // ==========================================================
+      tl.set("#scene-3", { autoAlpha: 1 }, 8.9);
+      tl.fromTo("#s3-badge", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 9.1);
+      tl.fromTo("#s3-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, 9.3);
+      tl.fromTo("#s3-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 9.6);
+      tl.fromTo("#s3-steps .step-pill", { opacity: 0, y: 50, scale: 0.9 }, { opacity: 1, y: 0, scale: 1, stagger: 0.12, duration: 0.6, ease: "back.out(1.3)" }, 9.8);
+      tl.fromTo("#s3-visual-model", { opacity: 0, y: 30, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: "power3.out" }, 11.0);
+      tl.fromTo(".bar-segment", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, stagger: 0.08, duration: 0.5, ease: "power2.out" }, 11.5);
+      tl.to("#scene-3", { opacity: 0, scale: 0.96, duration: 0.5, ease: "power2.in" }, 14.1);
+
+      // ==========================================================
+      // SCENE 4 (14.5s – 17.5s)
+      // ==========================================================
+      tl.set("#scene-4", { autoAlpha: 1 }, 14.4);
+      tl.fromTo("#s4-badge", { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, 14.6);
+      tl.fromTo("#s4-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 14.8);
+      tl.fromTo("#s4-sub", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 15.0);
+      tl.fromTo("#s4-cards > div", { opacity: 0, y: 40, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, stagger: 0.15, duration: 0.6, ease: "power2.out" }, 15.2);
+      tl.to("#scene-4", { opacity: 0, scale: 0.96, duration: 0.4, ease: "power2.in" }, 17.1);
+
+      // ==========================================================
+      // SCENE 5 (17.5s – 20.0s)
+      // ==========================================================
+      tl.set("#scene-5", { autoAlpha: 1 }, 17.4);
+      tl.fromTo("#s5-crest", { opacity: 0, scale: 0, rotation: -90 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.7, ease: "back.out(1.8)" }, 17.6);
+      tl.fromTo("#s5-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 17.8);
+      tl.fromTo("#s5-tagline", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 18.1);
+      tl.fromTo("#s5-url", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.6, ease: "back.out(1.5)" }, 18.3);
+      tl.fromTo("#s5-credits", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 18.6);
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
