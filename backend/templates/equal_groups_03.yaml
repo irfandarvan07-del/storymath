@@ -1,0 +1,31 @@
+id: groups_equal_03
+structure: equal_groups
+text_pattern: "In an inter-school sports meet, {groups} schools sent {item} teams. Each team consists of {per_group} {people}."
+question_pattern: "How many athletes are participating altogether?"
+numbers:
+  groups:
+    min: 4
+    max: 11
+  per_group:
+    min: 6
+    max: 16
+  total: "groups * per_group"
+answer: "groups * per_group"
+model: number_line
+operation: multiplication
+sense_check: "answer > per_group"
+sense_check_prompt: "Should the total count of athletes be bigger or smaller than {per_group}?"
+sense_check_answer: "bigger"
+items:
+  - kabaddi
+  - kho-kho
+  - relay
+  - cricket
+people:
+  - athletes
+  - players
+  - runners
+hints:
+  level_1: "Each team has the same number of players. Repeated addition means multiplication."
+  level_2: "On a number line, take {groups} jumps of {per_group} units each."
+  level_3: "For 5 teams of 7 players, 5 * 7 = 35 players. Multiply {groups} by {per_group}."

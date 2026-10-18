@@ -1,0 +1,28 @@
+id: unit_rate_03
+structure: unit_rate
+text_pattern: "An irrigation pump supplied {total_liters} liters of water to a paddy field over {hours} hours of continuous running."
+question_pattern: "How many liters of water did the pump discharge per hour?"
+numbers:
+  hours:
+    min: 4
+    max: 10
+  rate:
+    min: 40
+    max: 90
+  total_liters: "hours * rate"
+answer: "total_liters / hours"
+model: bar_model
+operation: division
+sense_check: "answer < total_liters"
+sense_check_prompt: "Should the water pumped in 1 hour be bigger or smaller than {total_liters} liters?"
+sense_check_answer: "smaller"
+items:
+  - liters
+  - gallons
+people:
+  - farmers
+  - operators
+hints:
+  level_1: "Determine the rate per single unit of time (1 hour)."
+  level_2: "Draw a bar for {total_liters} liters split into {hours} equal hourly parts."
+  level_3: "If 150 liters flow in 3 hours, the rate is 150 / 3 = 50 liters/hour. Calculate {total_liters} / {hours}."

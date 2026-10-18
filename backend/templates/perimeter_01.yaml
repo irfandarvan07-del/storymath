@@ -1,0 +1,29 @@
+id: perimeter_01
+structure: perimeter_area
+text_pattern: "A school rectangular {item} has a length of {length} meters and a width of {width} meters."
+question_pattern: "What is the perimeter (the total distance all the way around) of the {item} in meters?"
+numbers:
+  length:
+    min: 12
+    max: 28
+  width:
+    min: 5
+    max: 11
+answer: "2 * (length + width)"
+model: bar_model
+operation: addition
+sense_check: "answer > length"
+sense_check_prompt: "Should the total perimeter be bigger or smaller than the single length of {length} meters?"
+sense_check_answer: "bigger"
+items:
+  - playground
+  - garden
+  - courtyard
+  - vegetable plot
+people:
+  - teachers
+  - groundskeepers
+hints:
+  level_1: "Perimeter is the total boundary distance around all four sides of the rectangle."
+  level_2: "A rectangle has 2 lengths and 2 widths. Add: length + width + length + width."
+  level_3: "For a plot 10m long and 4m wide: 2 * (10 + 4) = 28m. Calculate 2 * ({length} + {width})."

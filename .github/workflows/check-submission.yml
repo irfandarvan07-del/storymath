@@ -1,0 +1,29 @@
+name: Check submission
+
+# pull_request_target runs the workflow and script from main, so a team cannot change the checker
+# in its own PR. The script only reads the PR through the API and never checks out PR code.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: check-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Check the pull request
+        run: python3 .github/scripts/check_submission.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          DEADLINE: "2026-10-18T23:59:59+05:30"

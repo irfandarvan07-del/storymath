@@ -1,0 +1,738 @@
+{
+  "area_01:cricket": [
+    {
+      "template_id": "area_01",
+      "structure": "perimeter_area",
+      "interest": "cricket",
+      "numbers": {
+        "length": 15,
+        "width": 6
+      },
+      "story": "The rectangular school badminton court measures 15 meters long and 6 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "diff_comp_02:school_sports": [
+    {
+      "template_id": "diff_comp_02",
+      "structure": "difference_comparison",
+      "interest": "school_sports",
+      "numbers": {
+        "diff": 14,
+        "larger": 44
+      },
+      "story": "Rohan scored 44 points in the tournament. Kabir scored 14 fewer points than Rohan.",
+      "question": "How many points did Kabir score?",
+      "hint_1": "When someone has fewer than a given amount, what operation finds the smaller value?",
+      "hint_2": "Draw the larger bar and subtract the difference from it.",
+      "hint_3": "For instance, if Rohan has 50 points and Kabir has 15 fewer, Kabir has 50 - 15 = 35 points."
+    }
+  ],
+  "diff_comp_03:food_cooking": [
+    {
+      "template_id": "diff_comp_03",
+      "structure": "difference_comparison",
+      "interest": "food_cooking",
+      "numbers": {
+        "smaller": 55,
+        "larger": 92
+      },
+      "story": "In the inter-school tournament, Rohan scored 92 runs during the first innings. Kabir scored 55 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    }
+  ],
+  "groups_equal_01:space_science": [
+    {
+      "template_id": "groups_equal_01",
+      "structure": "equal_groups",
+      "interest": "space_science",
+      "numbers": {
+        "groups": 10,
+        "per_group": 17
+      },
+      "story": "The school art club set up 10 supply tables with 17 pedas laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many pedas were laid out across all 10 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "groups_equal_02:art_craft": [
+    {
+      "template_id": "groups_equal_02",
+      "structure": "equal_groups",
+      "interest": "art_craft",
+      "numbers": {
+        "groups": 6,
+        "per_group": 9
+      },
+      "story": "The school art club set up 6 supply tables with 9 mango laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many mango were laid out across all 6 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "groups_equal_03:nature_gardening": [
+    {
+      "template_id": "groups_equal_03",
+      "structure": "equal_groups",
+      "interest": "nature_gardening",
+      "numbers": {
+        "groups": 11,
+        "per_group": 16
+      },
+      "story": "The school art club set up 11 supply tables with 16 kabaddi laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many kabaddi were laid out across all 11 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "share_equal_01:cricket": [
+    {
+      "template_id": "share_equal_01",
+      "structure": "equal_sharing",
+      "interest": "cricket",
+      "numbers": {
+        "groups": 7,
+        "total": 28
+      },
+      "story": "A coach received 28 cricket practice balls to distribute across 7 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 7 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    },
+    {
+      "template_id": "share_equal_01",
+      "interest": "cricket",
+      "numbers": {
+        "total": 84,
+        "groups": 12
+      },
+      "story": "A coach received 84 cricket practice balls to distribute across 12 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 12 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    },
+    {
+      "template_id": "share_equal_01",
+      "interest": "cricket",
+      "numbers": {
+        "total": 84,
+        "groups": 12
+      },
+      "story": "A coach received 84 cricket practice balls to distribute across 12 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 12 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    },
+    {
+      "template_id": "share_equal_01",
+      "interest": "cricket",
+      "numbers": {
+        "total": 84,
+        "groups": 12
+      },
+      "story": "A coach received 84 cricket practice balls to distribute across 12 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 12 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    },
+    {
+      "template_id": "share_equal_01",
+      "interest": "cricket",
+      "numbers": {
+        "total": 84,
+        "groups": 12
+      },
+      "story": "A coach received 84 cricket practice balls to distribute across 12 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 12 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "share_equal_02:festivals": [
+    {
+      "template_id": "share_equal_02",
+      "structure": "equal_sharing",
+      "interest": "festivals",
+      "numbers": {
+        "groups": 4,
+        "total": 64
+      },
+      "story": "During the annual sports day festival, teachers arranged 64 pens to distribute equally to 4 classrooms. Everyone was excited to receive an equal portion.",
+      "question": "How many pens did each of the 4 classrooms receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "share_equal_03:school_sports": [
+    {
+      "template_id": "share_equal_03",
+      "structure": "equal_sharing",
+      "interest": "school_sports",
+      "numbers": {
+        "groups": 7,
+        "total": 119
+      },
+      "story": "During the annual sports day festival, teachers arranged 119 storybook to distribute equally to 7 days. Everyone was excited to receive an equal portion.",
+      "question": "How many storybook did each of the 7 days receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "area_01:school_sports": [
+    {
+      "template_id": "area_01",
+      "structure": "perimeter_area",
+      "interest": "school_sports",
+      "numbers": {
+        "length": 8,
+        "width": 5
+      },
+      "story": "The rectangular school badminton court measures 8 meters long and 5 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "diff_comp_01:food_cooking": [
+    {
+      "template_id": "diff_comp_01",
+      "structure": "difference_comparison",
+      "interest": "food_cooking",
+      "numbers": {
+        "smaller": 54,
+        "larger": 78
+      },
+      "story": "In the inter-school tournament, Rohan scored 78 runs during the first innings. Kabir scored 54 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    }
+  ],
+  "diff_comp_02:space_science": [
+    {
+      "template_id": "diff_comp_02",
+      "structure": "difference_comparison",
+      "interest": "space_science",
+      "numbers": {
+        "diff": 13,
+        "larger": 55
+      },
+      "story": "Rohan scored 55 points in the tournament. Kabir scored 13 fewer points than Rohan.",
+      "question": "How many points did Kabir score?",
+      "hint_1": "When someone has fewer than a given amount, what operation finds the smaller value?",
+      "hint_2": "Draw the larger bar and subtract the difference from it.",
+      "hint_3": "For instance, if Rohan has 50 points and Kabir has 15 fewer, Kabir has 50 - 15 = 35 points."
+    }
+  ],
+  "groups_equal_01:nature_gardening": [
+    {
+      "template_id": "groups_equal_01",
+      "structure": "equal_groups",
+      "interest": "nature_gardening",
+      "numbers": {
+        "groups": 7,
+        "per_group": 10
+      },
+      "story": "The school art club set up 7 supply tables with 10 pedas laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many pedas were laid out across all 7 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "groups_equal_02:cricket": [
+    {
+      "template_id": "groups_equal_02",
+      "structure": "equal_groups",
+      "interest": "cricket",
+      "numbers": {
+        "groups": 12,
+        "per_group": 11
+      },
+      "story": "In the tournament grounds, there were 12 team kit bags with 11 protective pads packed neatly inside each bag. The equipment manager checked each bag carefully.",
+      "question": "How many protective pads were in all 12 kit bags altogether?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "groups_equal_03:festivals": [
+    {
+      "template_id": "groups_equal_03",
+      "structure": "equal_groups",
+      "interest": "festivals",
+      "numbers": {
+        "groups": 11,
+        "per_group": 12
+      },
+      "story": "The school art club set up 11 supply tables with 12 kabaddi laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many kabaddi were laid out across all 11 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "share_equal_01:school_sports": [
+    {
+      "template_id": "share_equal_01",
+      "structure": "equal_sharing",
+      "interest": "school_sports",
+      "numbers": {
+        "groups": 12,
+        "total": 84
+      },
+      "story": "During the annual sports day festival, teachers arranged 84 laddoos to distribute equally to 12 children. Everyone was excited to receive an equal portion.",
+      "question": "How many laddoos did each of the 12 children receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "share_equal_02:food_cooking": [
+    {
+      "template_id": "share_equal_02",
+      "structure": "equal_sharing",
+      "interest": "food_cooking",
+      "numbers": {
+        "groups": 4,
+        "total": 44
+      },
+      "story": "During the annual sports day festival, teachers arranged 44 pens to distribute equally to 4 classrooms. Everyone was excited to receive an equal portion.",
+      "question": "How many pens did each of the 4 classrooms receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "share_equal_03:space_science": [
+    {
+      "template_id": "share_equal_03",
+      "structure": "equal_sharing",
+      "interest": "space_science",
+      "numbers": {
+        "groups": 4,
+        "total": 100
+      },
+      "story": "During the annual sports day festival, teachers arranged 100 storybook to distribute equally to 4 days. Everyone was excited to receive an equal portion.",
+      "question": "How many storybook did each of the 4 days receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "perimeter_01:cricket": [
+    {
+      "template_id": "perimeter_01",
+      "structure": "perimeter_area",
+      "interest": "cricket",
+      "numbers": {
+        "length": 28,
+        "width": 9
+      },
+      "story": "The rectangular school badminton court measures 28 meters long and 9 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "unit_rate_01:festivals": [
+    {
+      "template_id": "unit_rate_01",
+      "structure": "unit_rate",
+      "interest": "festivals",
+      "numbers": {
+        "units": 9,
+        "total_cost": 243
+      },
+      "story": "Sunita bought 9 identical notebooks at the bazaar for a total of Rs. 243. Each item had the exact same price.",
+      "question": "What was the price of each notebooks in rupees?",
+      "hint_1": "When you know the combined cost of multiple identical items, how do you find the unit rate?",
+      "hint_2": "Draw a bar representing the total cost split into identical unit boxes.",
+      "hint_3": "For instance, if 3 notebooks cost Rs. 30 in total, each costs 30 / 3 = 10 rupees. Use the same unit rate step."
+    }
+  ],
+  "area_01:space_science": [
+    {
+      "template_id": "area_01",
+      "structure": "perimeter_area",
+      "interest": "space_science",
+      "numbers": {
+        "length": 15,
+        "width": 5
+      },
+      "story": "The rectangular school badminton court measures 15 meters long and 5 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "diff_comp_01:art_craft": [
+    {
+      "template_id": "diff_comp_01",
+      "structure": "difference_comparison",
+      "interest": "art_craft",
+      "numbers": {
+        "smaller": 48,
+        "larger": 66
+      },
+      "story": "In the inter-school tournament, Rohan scored 66 runs during the first innings. Kabir scored 48 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    }
+  ],
+  "diff_comp_02:nature_gardening": [
+    {
+      "template_id": "diff_comp_02",
+      "structure": "difference_comparison",
+      "interest": "nature_gardening",
+      "numbers": {
+        "diff": 14,
+        "larger": 48
+      },
+      "story": "Rohan scored 48 points in the tournament. Kabir scored 14 fewer points than Rohan.",
+      "question": "How many points did Kabir score?",
+      "hint_1": "When someone has fewer than a given amount, what operation finds the smaller value?",
+      "hint_2": "Draw the larger bar and subtract the difference from it.",
+      "hint_3": "For instance, if Rohan has 50 points and Kabir has 15 fewer, Kabir has 50 - 15 = 35 points."
+    }
+  ],
+  "diff_comp_03:cricket": [
+    {
+      "template_id": "diff_comp_03",
+      "structure": "difference_comparison",
+      "interest": "cricket",
+      "numbers": {
+        "smaller": 111,
+        "larger": 152
+      },
+      "story": "In the inter-school tournament, Rohan scored 152 runs during the first innings. Kabir scored 111 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    }
+  ],
+  "groups_equal_02:school_sports": [
+    {
+      "template_id": "groups_equal_02",
+      "structure": "equal_groups",
+      "interest": "school_sports",
+      "numbers": {
+        "groups": 13,
+        "per_group": 9
+      },
+      "story": "The school art club set up 13 supply tables with 9 mango laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many mango were laid out across all 13 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "groups_equal_03:food_cooking": [
+    {
+      "template_id": "groups_equal_03",
+      "structure": "equal_groups",
+      "interest": "food_cooking",
+      "numbers": {
+        "groups": 7,
+        "per_group": 9
+      },
+      "story": "The school art club set up 7 supply tables with 9 kabaddi laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many kabaddi were laid out across all 7 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "share_equal_01:space_science": [
+    {
+      "template_id": "share_equal_01",
+      "structure": "equal_sharing",
+      "interest": "space_science",
+      "numbers": {
+        "groups": 7,
+        "total": 56
+      },
+      "story": "During the annual sports day festival, teachers arranged 56 laddoos to distribute equally to 7 children. Everyone was excited to receive an equal portion.",
+      "question": "How many laddoos did each of the 7 children receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "share_equal_02:art_craft": [
+    {
+      "template_id": "share_equal_02",
+      "structure": "equal_sharing",
+      "interest": "art_craft",
+      "numbers": {
+        "groups": 10,
+        "total": 70
+      },
+      "story": "During the annual sports day festival, teachers arranged 70 pens to distribute equally to 10 classrooms. Everyone was excited to receive an equal portion.",
+      "question": "How many pens did each of the 10 classrooms receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "share_equal_03:nature_gardening": [
+    {
+      "template_id": "share_equal_03",
+      "structure": "equal_sharing",
+      "interest": "nature_gardening",
+      "numbers": {
+        "groups": 9,
+        "total": 153
+      },
+      "story": "During the annual sports day festival, teachers arranged 153 storybook to distribute equally to 9 days. Everyone was excited to receive an equal portion.",
+      "question": "How many storybook did each of the 9 days receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "perimeter_01:school_sports": [
+    {
+      "template_id": "perimeter_01",
+      "structure": "perimeter_area",
+      "interest": "school_sports",
+      "numbers": {
+        "length": 15,
+        "width": 5
+      },
+      "story": "The rectangular school badminton court measures 15 meters long and 5 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "unit_rate_01:food_cooking": [
+    {
+      "template_id": "unit_rate_01",
+      "structure": "unit_rate",
+      "interest": "food_cooking",
+      "numbers": {
+        "units": 9,
+        "total_cost": 270
+      },
+      "story": "Sunita bought 9 identical notebooks at the bazaar for a total of Rs. 270. Each item had the exact same price.",
+      "question": "What was the price of each notebooks in rupees?",
+      "hint_1": "When you know the combined cost of multiple identical items, how do you find the unit rate?",
+      "hint_2": "Draw a bar representing the total cost split into identical unit boxes.",
+      "hint_3": "For instance, if 2 notebooks cost Rs. 16 in total, each costs 16 / 2 = 8 rupees. Use the same unit rate step."
+    }
+  ],
+  "diff_comp_01:cricket": [
+    {
+      "template_id": "diff_comp_01",
+      "structure": "difference_comparison",
+      "interest": "cricket",
+      "numbers": {
+        "smaller": 26,
+        "larger": 45
+      },
+      "story": "In the inter-school tournament, Rohan scored 45 runs during the first innings. Kabir scored 26 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    }
+  ],
+  "groups_equal_01:default": [
+    {
+      "template_id": "groups_equal_01",
+      "interest": "default",
+      "numbers": {
+        "groups": 8,
+        "per_group": 17
+      },
+      "story": "The school art club set up 8 supply tables with 17 pedas laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many pedas were laid out across all 8 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "perimeter_01:default": [
+    {
+      "template_id": "perimeter_01",
+      "interest": "default",
+      "numbers": {
+        "length": 12,
+        "width": 10
+      },
+      "story": "The rectangular school badminton court measures 12 meters long and 10 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    },
+    {
+      "template_id": "perimeter_01",
+      "interest": "default",
+      "numbers": {
+        "length": 19,
+        "width": 9
+      },
+      "story": "The rectangular school badminton court measures 19 meters long and 9 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    },
+    {
+      "template_id": "perimeter_01",
+      "interest": "default",
+      "numbers": {
+        "length": 14,
+        "width": 8
+      },
+      "story": "The rectangular school badminton court measures 14 meters long and 8 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    },
+    {
+      "template_id": "perimeter_01",
+      "interest": "default",
+      "numbers": {
+        "length": 24,
+        "width": 6
+      },
+      "story": "The rectangular school badminton court measures 24 meters long and 6 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "diff_comp_02:default": [
+    {
+      "template_id": "diff_comp_02",
+      "interest": "default",
+      "numbers": {
+        "diff": 6,
+        "larger": 51
+      },
+      "story": "Rohan scored 51 points in the tournament. Kabir scored 6 fewer points than Rohan.",
+      "question": "How many points did Kabir score?",
+      "hint_1": "When someone has fewer than a given amount, what operation finds the smaller value?",
+      "hint_2": "Draw the larger bar and subtract the difference from it.",
+      "hint_3": "For instance, if Rohan has 50 points and Kabir has 15 fewer, Kabir has 50 - 15 = 35 points."
+    }
+  ],
+  "groups_equal_02:default": [
+    {
+      "template_id": "groups_equal_02",
+      "interest": "default",
+      "numbers": {
+        "groups": 11,
+        "per_group": 18
+      },
+      "story": "The school art club set up 11 supply tables with 18 mango laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many mango were laid out across all 11 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "diff_comp_03:default": [
+    {
+      "template_id": "diff_comp_03",
+      "interest": "default",
+      "numbers": {
+        "smaller": 70,
+        "larger": 98
+      },
+      "story": "In the inter-school tournament, Rohan scored 98 runs during the first innings. Kabir scored 70 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    },
+    {
+      "template_id": "diff_comp_03",
+      "interest": "default",
+      "numbers": {
+        "smaller": 44,
+        "larger": 83
+      },
+      "story": "In the inter-school tournament, Rohan scored 83 runs during the first innings. Kabir scored 44 runs during the second innings.",
+      "question": "How many more runs did Rohan score than Kabir?",
+      "hint_1": "Are you comparing the difference between two separate quantities, or putting them together?",
+      "hint_2": "Draw two comparison bars side by side and look at the difference gap between them.",
+      "hint_3": "For instance, if one batsman has 50 runs and another has 35 runs, the difference is 50 - 35 = 15 runs. Apply the same comparison step."
+    }
+  ],
+  "unit_rate_01:default": [
+    {
+      "template_id": "unit_rate_01",
+      "interest": "default",
+      "numbers": {
+        "units": 8,
+        "total_cost": 264
+      },
+      "story": "Sunita bought 8 identical notebooks at the bazaar for a total of Rs. 264. Each item had the exact same price.",
+      "question": "What was the price of each notebooks in rupees?",
+      "hint_1": "When you know the combined cost of multiple identical items, how do you find the unit rate?",
+      "hint_2": "Draw a bar representing the total cost split into identical unit boxes.",
+      "hint_3": "For instance, if 3 notebooks cost Rs. 30 in total, each costs 30 / 3 = 10 rupees. Use the same unit rate step."
+    }
+  ],
+  "share_equal_03:default": [
+    {
+      "template_id": "share_equal_03",
+      "interest": "default",
+      "numbers": {
+        "groups": 4,
+        "total": 40
+      },
+      "story": "During the annual sports day festival, teachers arranged 40 storybook to distribute equally to 4 days. Everyone was excited to receive an equal portion.",
+      "question": "How many storybook did each of the 4 days receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    }
+  ],
+  "area_01:default": [
+    {
+      "template_id": "area_01",
+      "interest": "default",
+      "numbers": {
+        "length": 12,
+        "width": 5
+      },
+      "story": "The rectangular school badminton court measures 12 meters long and 5 meters wide. The sports committee plans to place boundary line tape completely around the perimeter.",
+      "question": "How many meters of boundary line tape are needed to go all the way around the court?",
+      "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
+      "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
+      "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ]
+}

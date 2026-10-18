@@ -1,0 +1,31 @@
+id: groups_equal_01
+structure: equal_groups
+text_pattern: "A sweet shop packs {groups} gift boxes. Each box contains exactly {per_group} {item}."
+question_pattern: "How many {item} are there in total across all {groups} boxes?"
+numbers:
+  groups:
+    min: 4
+    max: 12
+  per_group:
+    min: 5
+    max: 18
+  total: "groups * per_group"
+answer: "groups * per_group"
+model: groups_picture
+operation: multiplication
+sense_check: "answer > per_group"
+sense_check_prompt: "Should the total number of {item} be bigger or smaller than {per_group}?"
+sense_check_answer: "bigger"
+items:
+  - pedas
+  - kaju katlis
+  - besan laddoos
+  - chocolates
+  - cookies
+people:
+  - customers
+  - boxes
+hints:
+  level_1: "Multiple identical groups are being combined to find the total."
+  level_2: "Draw {groups} boxes with {per_group} items inside each box."
+  level_3: "If 4 boxes have 6 sweets each, total is 4 * 6 = 24 sweets. Here, multiply {groups} by {per_group}."

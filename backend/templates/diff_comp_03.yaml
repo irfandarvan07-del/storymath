@@ -1,0 +1,30 @@
+id: diff_comp_03
+structure: difference_comparison
+text_pattern: "The village library has {larger} English {item} and {smaller} Kannada {item} on its shelves."
+question_pattern: "How many more English {item} are there than Kannada {item}?"
+numbers:
+  smaller:
+    min: 40
+    max: 120
+  diff:
+    min: 15
+    max: 45
+  larger: "smaller + diff"
+answer: "larger - smaller"
+model: bar_model
+operation: subtraction
+sense_check: "answer < larger"
+sense_check_prompt: "Should the difference be bigger or smaller than {larger}?"
+sense_check_answer: "smaller"
+items:
+  - books
+  - magazines
+  - comics
+  - encyclopedias
+people:
+  - librarians
+  - readers
+hints:
+  level_1: "Compare two sets to determine how much larger one set is than the other."
+  level_2: "Draw two comparison bars: one of {larger} and one of {smaller}. Subtract to find the extra length."
+  level_3: "If you have 80 books and 50 magazines, the difference is 80 - 50 = 30. Calculate {larger} - {smaller}."

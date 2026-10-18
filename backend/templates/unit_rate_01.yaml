@@ -1,0 +1,31 @@
+id: unit_rate_01
+structure: unit_rate
+text_pattern: "Sunita bought {units} identical {item} at the bazaar for a total of {total_cost} rupees."
+question_pattern: "What was the cost of a single {item} in rupees?"
+numbers:
+  units:
+    min: 3
+    max: 9
+  rate:
+    min: 12
+    max: 35
+  total_cost: "units * rate"
+answer: "total_cost / units"
+model: bar_model
+operation: division
+sense_check: "answer < total_cost"
+sense_check_prompt: "Should the price of one {item} be bigger or smaller than the total cost of {total_cost} rupees?"
+sense_check_answer: "smaller"
+items:
+  - notebooks
+  - geometry boxes
+  - pens
+  - water bottles
+  - compasses
+people:
+  - shopkeepers
+  - students
+hints:
+  level_1: "Unit rate means finding the value or cost of one single item from the total cost."
+  level_2: "Draw a bar for {total_cost} rupees partitioned into {units} equal units."
+  level_3: "If 4 pencils cost 20 rupees, one costs 20 / 4 = 5 rupees. Compute {total_cost} / {units}."

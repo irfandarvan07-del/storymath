@@ -1,0 +1,147 @@
+{
+  "app": {
+    "name": "StoryMath",
+    "tagline": "Same maths, different story."
+  },
+  "common": {
+    "check": "Check",
+    "next": "Next",
+    "loading": "Getting your story ready…",
+    "retry": "Try again",
+    "leave": "Leave class",
+    "language": "Language",
+    "offline": "You are offline. Your work is saved on this phone.",
+    "waiting": "{{count}} waiting to send"
+  },
+  "join": {
+    "title": "Join your class",
+    "subtitle": "Ask your teacher for the class code.",
+    "codeLabel": "Class code",
+    "codePlaceholder": "e.g. CLASS5A",
+    "button": "Join",
+    "joining": "Joining…",
+    "errorNotFound": "We could not find that class. Check the code and try again.",
+    "errorNetwork": "No internet right now. Try again when you are online.",
+    "errorGeneric": "Something went wrong. Please try again.",
+    "welcomeTitle": "You are in!",
+    "yourCode": "Your student code",
+    "yourCodeHint": "Write this code in your notebook. Your teacher can use it to help you.",
+    "start": "Start"
+  },
+  "steps": {
+    "facts": "Facts",
+    "model": "Picture",
+    "operation": "Operation",
+    "calculation": "Answer",
+    "sense_check": "Check"
+  },
+  "step": {
+    "facts": {
+      "title": "What do we know?",
+      "help": "Choose Given or Asked, then tap the words in the story."
+    },
+    "model": {
+      "title": "Draw the idea",
+      "help": "Pick the picture that fits this story."
+    },
+    "operation": {
+      "title": "Which operation?",
+      "help": "What do we do with the numbers to answer the question?"
+    },
+    "calculation": {
+      "title": "Work it out",
+      "help": "Type your answer."
+    },
+    "sense_check": {
+      "title": "Does it make sense?",
+      "help": "Think before you calculate more."
+    }
+  },
+  "facts": {
+    "given": "Given",
+    "givenHelp": "What the story tells us",
+    "asked": "Asked",
+    "askedHelp": "What we must find",
+    "marked": "{{count}} marked"
+  },
+  "model": {
+    "bar_model": "Bar",
+    "groups_picture": "Groups",
+    "number_line": "Number line",
+    "placeHelp": "Drag each number into its box, or tap a number and then tap a box.",
+    "numbers": "Numbers",
+    "pictureLabel": "Your picture",
+    "empty": "?"
+  },
+  "keys": {
+    "total": "Total",
+    "groups": "Groups",
+    "per_group": "In each group",
+    "whole": "Whole",
+    "part": "Part",
+    "parts": "Parts",
+    "length": "Length",
+    "width": "Width",
+    "side": "Side",
+    "rate": "Rate",
+    "price": "Price",
+    "quantity": "How many",
+    "bigger": "Bigger",
+    "smaller": "Smaller",
+    "difference": "Difference",
+    "numerator": "Top",
+    "denominator": "Bottom",
+    "fraction": "Fraction"
+  },
+  "operation": {
+    "addition": "Add",
+    "subtraction": "Subtract",
+    "multiplication": "Multiply",
+    "division": "Divide"
+  },
+  "calculation": {
+    "label": "Your answer",
+    "placeholder": "Type a number"
+  },
+  "sense": {
+    "bigger": "Bigger",
+    "smaller": "Smaller"
+  },
+  "hint": {
+    "title": "Hint",
+    "level": "Hint {{level}} of 3",
+    "earlier": "Earlier hints"
+  },
+  "verdict": {
+    "correct": "Yes! Well done.",
+    "wrong": "Not quite. Read the hint and try again.",
+    "queued": "Saved. We will check it when you are back online.",
+    "error": "Something went wrong. Please try again."
+  },
+  "transfer": {
+    "title": "Solved!",
+    "subtitle": "Now try a new story. The maths idea is the same.",
+    "structure": "Maths idea",
+    "button": "New story, same structure",
+    "done": "I am done for now",
+    "count": "Problems finished today: {{count}}"
+  },
+  "finished": {
+    "title": "Great work today!",
+    "subtitle": "Come back soon for another story.",
+    "again": "Start again"
+  },
+  "structures": {
+    "equal_groups": "Equal groups",
+    "equal_sharing": "Equal sharing",
+    "difference_comparison": "Difference comparison",
+    "unit_rate": "Unit rate",
+    "fraction_of_quantity": "Fraction of a quantity",
+    "perimeter_area": "Perimeter and area"
+  },
+  "error": {
+    "title": "We could not get a story",
+    "offline": "You seem to be offline. Connect to the internet and try again.",
+    "generic": "Something went wrong on our side. Please try again."
+  }
+}

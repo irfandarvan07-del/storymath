@@ -1,0 +1,31 @@
+id: groups_equal_02
+structure: equal_groups
+text_pattern: "A farmer planted {groups} rows of {item} in an orchard. Each row has {per_group} trees."
+question_pattern: "What is the total number of trees planted in the orchard?"
+numbers:
+  groups:
+    min: 5
+    max: 14
+  per_group:
+    min: 8
+    max: 20
+  total: "groups * per_group"
+answer: "groups * per_group"
+model: bar_model
+operation: multiplication
+sense_check: "answer > per_group"
+sense_check_prompt: "Should the total number of trees be bigger or smaller than {per_group}?"
+sense_check_answer: "bigger"
+items:
+  - mango
+  - coconut
+  - guava
+  - lemon
+  - orange
+people:
+  - farmers
+  - gardeners
+hints:
+  level_1: "When each row contains the exact same number of trees, find the total by multiplying."
+  level_2: "In a bar model, arrange {groups} equal blocks of size {per_group}."
+  level_3: "If 3 rows have 10 trees each, 3 * 10 = 30 trees. Compute {groups} * {per_group}."

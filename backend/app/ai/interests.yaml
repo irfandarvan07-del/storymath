@@ -1,0 +1,42 @@
+interests:
+  - id: cricket
+    name: "Cricket"
+    items: ["runs", "balls", "overs", "cricket balls", "wickets", "boundaries"]
+    people: ["cricketers", "batsmen", "bowlers", "team players", "captains"]
+    contexts: ["inter-school tournament", "gully cricket match", "coaching camp", "stadium practice"]
+
+  - id: festivals
+    name: "Festivals & Celebrations"
+    items: ["diyas", "laddoos", "samosas", "paper lanterns", "gulab jamuns", "marigold garlands"]
+    people: ["cousins", "neighbours", "family members", "friends", "classmates"]
+    contexts: ["Diwali celebration", "Eid feast", "Pongal gathering", "school annual day"]
+
+  - id: school_sports
+    name: "School Sports & Activities"
+    items: ["medals", "ribbons", "shuttlecocks", "badges", "points", "track laps"]
+    people: ["runners", "swimmers", "athletes", "house captains", "gymnasts"]
+    contexts: ["annual sports day", "relay race", "badminton tournament", "swimming gala"]
+
+  - id: food_cooking
+    name: "Food & Snacks"
+    items: ["idlis", "samosas", "mangoes", "packets of biscuits", "chocolates", "cups of payasam"]
+    people: ["students", "food stall volunteers", "bakers", "friends", "picnickers"]
+    contexts: ["school canteen", "village mela food stall", "class picnic", "community kitchen"]
+
+  - id: space_science
+    name: "Space & Science Fair"
+    items: ["model rockets", "magnifying lenses", "star charts", "prism blocks", "test tubes"]
+    people: ["young scientists", "astronomy club members", "students", "exhibition guides"]
+    contexts: ["school science exhibition", "night sky gazing camp", "robotics workshop"]
+
+  - id: art_craft
+    name: "Art & Craft"
+    items: ["origami sheets", "sketch pens", "clay pots", "paint brushes", "colour pastels"]
+    people: ["art students", "craft teachers", "sketchers", "sculptors"]
+    contexts: ["drawing competition", "pottery workshop", "poster making event"]
+
+  - id: nature_gardening
+    name: "Nature & Gardening"
+    items: ["flower saplings", "sunflower seeds", "bamboo pots", "rose bushes", "tree plantlets"]
+    people: ["eco-club members", "school gardeners", "nature scouts", "volunteers"]
+    contexts: ["van mahotsav drive", "kitchen garden", "botanical garden tour"]

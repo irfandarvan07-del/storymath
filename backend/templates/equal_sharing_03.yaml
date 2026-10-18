@@ -1,0 +1,29 @@
+id: share_equal_03
+structure: equal_sharing
+text_pattern: "Ananya needs to read a {total}-page {item} over {groups} days, reading the same number of pages every day."
+question_pattern: "How many pages must she read each day?"
+numbers:
+  groups:
+    min: 4
+    max: 9
+  per_group:
+    min: 8
+    max: 25
+  total: "groups * per_group"
+answer: "total / groups"
+model: number_line
+operation: division
+sense_check: "answer < total"
+sense_check_prompt: "Should the daily reading target be bigger or smaller than {total}?"
+sense_check_answer: "smaller"
+items:
+  - storybook
+  - novel
+  - biography
+  - science journal
+people:
+  - days
+hints:
+  level_1: "The total number of pages is divided evenly across equal daily steps."
+  level_2: "On a number line from 0 to {total}, make {groups} equal jumps."
+  level_3: "If reading 60 pages in 5 days, each day is 60 / 5 = 12 pages. Divide {total} by {groups}."

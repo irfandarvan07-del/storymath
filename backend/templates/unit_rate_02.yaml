@@ -1,0 +1,28 @@
+id: unit_rate_02
+structure: unit_rate
+text_pattern: "A Karnataka State Road Transport bus traveled {distance} kilometers at a steady speed in {hours} hours."
+question_pattern: "What was the speed of the bus in kilometers per hour?"
+numbers:
+  hours:
+    min: 3
+    max: 8
+  speed:
+    min: 35
+    max: 65
+  distance: "hours * speed"
+answer: "distance / hours"
+model: number_line
+operation: division
+sense_check: "answer < distance"
+sense_check_prompt: "Should the distance traveled in 1 hour be bigger or smaller than the full {distance} km?"
+sense_check_answer: "smaller"
+items:
+  - kilometers
+  - miles
+people:
+  - drivers
+  - passengers
+hints:
+  level_1: "Speed is the unit rate: how many kilometers are covered in just one hour."
+  level_2: "On a number line from 0 to {distance}, divide the length into {hours} equal hourly segments."
+  level_3: "If traveling 120 km in 3 hours, the speed is 120 / 3 = 40 km/h. Divide {distance} by {hours}."

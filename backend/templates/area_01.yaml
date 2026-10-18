@@ -1,0 +1,29 @@
+id: area_01
+structure: perimeter_area
+text_pattern: "A community hall floor is covered by a rectangular {item} measuring {length} meters in length and {width} meters in width."
+question_pattern: "What is the total area of the {item} in square meters?"
+numbers:
+  length:
+    min: 7
+    max: 18
+  width:
+    min: 4
+    max: 10
+answer: "length * width"
+model: groups_picture
+operation: multiplication
+sense_check: "answer > length"
+sense_check_prompt: "Should the total area be bigger or smaller than the length of {length} meters?"
+sense_check_answer: "bigger"
+items:
+  - carpet
+  - coir mat
+  - stage floor
+  - tiled area
+people:
+  - caretakers
+  - organizers
+hints:
+  level_1: "Area measures the surface space covered inside the 2D shape."
+  level_2: "Imagine unit square tiles in a grid with {length} columns and {width} rows."
+  level_3: "For a mat 5m by 3m, area is 5 * 3 = 15 square meters. Multiply {length} by {width}."

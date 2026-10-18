@@ -1,0 +1,53 @@
+- id: share_equal_01
+  structure: equal_sharing
+  title: "Equal Sharing - Sweets & Snacks"
+  text_pattern: "{total} {item} are shared equally among {groups} {people}. How many {item} does each person get?"
+  context_items: ["laddoos", "samosas", "gulab jamuns", "mangoes"]
+  context_people: ["children", "friends", "cousins", "classmates"]
+  numbers:
+    groups: {min: 3, max: 12}
+    per_group: {min: 4, max: 15}
+    total: "groups * per_group"
+  answer: "total / groups"
+  model: "groups_picture"
+  operation: "division"
+  sense_check:
+    question: "Should each person get more or fewer {item} than the total {total}?"
+    expected: "smaller"
+    reason: "Because dividing a total among several people gives each person a smaller part."
+
+- id: share_equal_02
+  structure: equal_sharing
+  title: "Equal Sharing - School Supplies"
+  text_pattern: "A teacher has {total} {item} to distribute equally to {groups} {people}. How many {item} will each student receive?"
+  context_items: ["notebooks", "pencils", "crayons", "erasers"]
+  context_people: ["students", "learning pods", "study groups", "desks"]
+  numbers:
+    groups: {min: 4, max: 10}
+    per_group: {min: 5, max: 18}
+    total: "groups * per_group"
+  answer: "total / groups"
+  model: "bar_model"
+  operation: "division"
+  sense_check:
+    question: "Will each group's share be smaller or larger than the whole box of {total} {item}?"
+    expected: "smaller"
+    reason: "When you share things equally among groups, each group gets a fraction/portion of the total."
+
+- id: share_equal_03
+  structure: equal_sharing
+  title: "Equal Sharing - Planting & Craft"
+  text_pattern: "{groups} gardeners want to plant an equal share of {total} {item} across the garden. How many {item} will each gardener plant?"
+  context_items: ["flower bulbs", "marigold saplings", "sunflower seeds", "rose bushes"]
+  context_people: ["gardeners", "eco-club members", "volunteers", "farmers"]
+  numbers:
+    groups: {min: 3, max: 8}
+    per_group: {min: 6, max: 20}
+    total: "groups * per_group"
+  answer: "total / groups"
+  model: "groups_picture"
+  operation: "division"
+  sense_check:
+    question: "Should the answer be bigger or smaller than {total}?"
+    expected: "smaller"
+    reason: "Equal sharing always distributes a whole collection into smaller parts."

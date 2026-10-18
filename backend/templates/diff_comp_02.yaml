@@ -1,0 +1,28 @@
+id: diff_comp_02
+structure: difference_comparison
+text_pattern: "During the annual sports day, Karan threw the javelin {larger} meters, which was {diff} meters farther than Rohan's throw."
+question_pattern: "How far did Rohan throw the javelin?"
+numbers:
+  smaller:
+    min: 22
+    max: 55
+  diff:
+    min: 6
+    max: 20
+  larger: "smaller + diff"
+answer: "larger - diff"
+model: number_line
+operation: subtraction
+sense_check: "answer < larger"
+sense_check_prompt: "Should Rohan's throw be farther or shorter than {larger} meters?"
+sense_check_answer: "smaller"
+items:
+  - meters
+  - yards
+people:
+  - athletes
+  - participants
+hints:
+  level_1: "One distance is greater than another by a known difference. Find the smaller distance."
+  level_2: "On a number line, start at {larger} and step back {diff} units to find Rohan's mark."
+  level_3: "If someone throws 40m, which is 5m farther than another, the other is 40 - 5 = 35m. Subtract {diff} from {larger}."

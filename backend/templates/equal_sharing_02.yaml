@@ -1,0 +1,33 @@
+id: share_equal_02
+structure: equal_sharing
+text_pattern: "A school received {total} {item} to distribute equally among {groups} {people}."
+question_pattern: "How many {item} will each team receive?"
+numbers:
+  groups:
+    min: 4
+    max: 10
+  per_group:
+    min: 6
+    max: 20
+  total: "groups * per_group"
+answer: "total / groups"
+model: bar_model
+operation: division
+sense_check: "answer < total"
+sense_check_prompt: "Should each team's share be bigger or smaller than {total}?"
+sense_check_answer: "smaller"
+items:
+  - pens
+  - drawing sheets
+  - science kits
+  - plant saplings
+  - storybooks
+people:
+  - classrooms
+  - study groups
+  - scout teams
+  - project teams
+hints:
+  level_1: "The total is divided into equal portions for each team."
+  level_2: "In a bar model, divide the full bar of {total} into {groups} equal parts."
+  level_3: "If 5 teams share 45 pens, each gets 45 / 5 = 9 pens. Compute {total} / {groups}."

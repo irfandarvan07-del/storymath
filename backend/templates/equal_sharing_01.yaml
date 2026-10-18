@@ -1,0 +1,35 @@
+id: share_equal_01
+structure: equal_sharing
+text_pattern: "{total} {item} are shared equally among {groups} {people}."
+question_pattern: "How many {item} does each of the {groups} {people} get?"
+numbers:
+  groups:
+    min: 3
+    max: 12
+  per_group:
+    min: 4
+    max: 15
+  total: "groups * per_group"
+answer: "total / groups"
+model: groups_picture
+operation: division
+sense_check: "answer < total"
+sense_check_prompt: "Should the answer be bigger or smaller than {total}?"
+sense_check_answer: "smaller"
+items:
+  - laddoos
+  - apples
+  - chocolates
+  - notebooks
+  - samosas
+  - gulab jamuns
+people:
+  - children
+  - students
+  - friends
+  - cousins
+  - teammates
+hints:
+  level_1: "Are the items being split into equal shares, or combined together?"
+  level_2: "Draw {groups} equal groups. Divide the total of {total} {item} equally among them."
+  level_3: "When 4 children share 20 mangoes equally, 20 / 4 = 5 each. Here, divide {total} by {groups}."

@@ -1,0 +1,19 @@
+{
+  "attempt_id": 101,
+  "structure": "equal_sharing",
+  "model_type": "groups_picture",
+  "story": "12 children share 84 laddoos equally.",
+  "question": "How many laddoos does each child get?",
+  "numbers": {
+    "total": 84,
+    "groups": 12
+  },
+  "steps_enabled": [
+    "facts",
+    "model",
+    "operation",
+    "calculation",
+    "sense_check"
+  ],
+  "sense_check_prompt": "Should the answer be bigger or smaller than 84?"
+}

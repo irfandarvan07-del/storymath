@@ -1,0 +1,33 @@
+id: fraction_qty_01
+structure: fraction_of_a_quantity
+text_pattern: "There are {total} {item} in a box. Deepa found that {numerator}/{denominator} of the {item} are blue."
+question_pattern: "How many blue {item} are there in the box?"
+numbers:
+  denominator:
+    choices: [4, 5, 6, 8, 10]
+  numerator:
+    min: 2
+    max: 3
+  unit_part:
+    min: 5
+    max: 18
+  total: "denominator * unit_part"
+answer: "unit_part * numerator"
+model: bar_model
+operation: multiplication
+sense_check: "answer < total"
+sense_check_prompt: "Should the number of blue {item} be bigger or smaller than {total}?"
+sense_check_answer: "smaller"
+items:
+  - marbles
+  - ribbons
+  - badges
+  - buttons
+  - beads
+people:
+  - collectors
+  - students
+hints:
+  level_1: "To find a fraction of a total quantity, first find 1 part, then multiply by the number of parts."
+  level_2: "In a bar model, divide the total of {total} into {denominator} equal parts. Shade {numerator} parts."
+  level_3: "For 2/5 of 30: 30 / 5 = 6 per part, and 6 * 2 = 12. First divide {total} by {denominator}, then multiply by {numerator}."

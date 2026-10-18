@@ -1,0 +1,28 @@
+id: diff_comp_01
+structure: difference_comparison
+text_pattern: "In a cricket match, Rahul scored {larger} runs while Priya scored {smaller} runs."
+question_pattern: "How many more runs did Rahul score than Priya?"
+numbers:
+  smaller:
+    min: 25
+    max: 75
+  diff:
+    min: 8
+    max: 30
+  larger: "smaller + diff"
+answer: "larger - smaller"
+model: bar_model
+operation: subtraction
+sense_check: "answer < larger"
+sense_check_prompt: "Should the difference in runs be bigger or smaller than Rahul's score of {larger}?"
+sense_check_answer: "smaller"
+items:
+  - runs
+  - points
+people:
+  - cricketers
+  - batsmen
+hints:
+  level_1: "We are comparing two quantities to find how much greater one is than the other."
+  level_2: "Draw two comparison bars: one for {larger} and a shorter one for {smaller}. The gap is the difference."
+  level_3: "If Rohit scores 50 runs and Virat scores 38 runs, the difference is 50 - 38 = 12. Subtract {smaller} from {larger}."

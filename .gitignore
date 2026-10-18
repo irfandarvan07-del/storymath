@@ -1,0 +1,43 @@
+# Environments and secrets
+.env
+.env.*
+!.env.example
+local.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Databases
+*.db
+*.sqlite3
+
+# Node / Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

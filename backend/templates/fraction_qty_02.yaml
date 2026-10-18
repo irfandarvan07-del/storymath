@@ -1,0 +1,32 @@
+id: fraction_qty_02
+structure: fraction_of_a_quantity
+text_pattern: "In an auditorium of {total} {people}, exactly {numerator}/{denominator} of them are wearing white uniforms."
+question_pattern: "How many {people} are wearing white uniforms?"
+numbers:
+  denominator:
+    choices: [3, 4, 5, 8]
+  numerator:
+    min: 2
+    max: 3
+  unit_part:
+    min: 12
+    max: 30
+  total: "denominator * unit_part"
+answer: "unit_part * numerator"
+model: bar_model
+operation: multiplication
+sense_check: "answer < total"
+sense_check_prompt: "Should the number of students in white be bigger or smaller than the entire group of {total}?"
+sense_check_answer: "smaller"
+items:
+  - students
+  - children
+  - scouts
+people:
+  - students
+  - children
+  - scouts
+hints:
+  level_1: "Finding a fraction of a whole requires finding one unit fraction and scaling by the numerator."
+  level_2: "Divide the full bar representing {total} {people} into {denominator} equal segments. Count {numerator} segments."
+  level_3: "For 3/4 of 40: 40 / 4 = 10, then 10 * 3 = 30. Calculate ({total} / {denominator}) * {numerator}."
