@@ -8,8 +8,8 @@ export function AuthPage() {
   const [role, setRole] = useState<'student' | 'teacher'>('student')
 
   // Teacher Login State
-  const [teacherUser, setTeacherUser] = useState('TEACHER')
-  const [teacherPass, setTeacherPass] = useState('1234567891011')
+  const [teacherUser, setTeacherUser] = useState('')
+  const [teacherPass, setTeacherPass] = useState('')
   const [teacherBusy, setTeacherBusy] = useState(false)
   const [teacherError, setTeacherError] = useState<string | null>(null)
 
@@ -159,14 +159,8 @@ export function AuthPage() {
             <div className="text-center space-y-1">
               <h2 className="text-xl font-black text-ink">Global Teacher Login</h2>
               <p className="text-xs text-ink/70">
-                Single authorized teacher access to Karnataka cohort diagnostic heatmaps.
+                Authorized global teacher access only. Contact your administrator for credentials.
               </p>
-            </div>
-
-            <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs space-y-1 text-amber-900">
-              <div className="font-bold">🔑 Authorized Teacher Credentials:</div>
-              <div>Username: <code className="bg-white px-1.5 py-0.5 rounded font-mono font-bold">TEACHER</code></div>
-              <div>Password: <code className="bg-white px-1.5 py-0.5 rounded font-mono font-bold">1234567891011</code></div>
             </div>
 
             {teacherError && (
