@@ -17,7 +17,7 @@ StoryMath is an intelligent, bilingual mathematics platform that decouples under
 > Video: YouTube, or Google Drive with view access for anyone with the link. 5:00 at most.
 > Slides: Google Slides with view access for anyone with the link. 8 slides at most.
 
-- Code repository: https://github.com/irfandarvan07-del/Craft-N-Code-Karnataka.git
+- Code repository: https://github.com/irfandarvan07-del/storymath.git
 - Demo video: https://drive.google.com/file/d/19bRoNc1mqXo6ep11BYz012yLppouvoml/view?usp=sharing
 - Slides: https://docs.google.com/presentation/d/1wq0rgv4JavrPmNLtmItm_pWlh9JBtzBndJGDOubTwJA/edit?usp=sharing
 - Deployed URL (optional): https://storymath-six.vercel.app/
