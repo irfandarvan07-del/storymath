@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { useSyncExternalStore } from 'react'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { pendingCount, subscribe } from '../api/queue'
 import { LanguageSwitcher } from './LanguageSwitcher'
@@ -30,13 +31,21 @@ export function AppShell({ children, studentCode, onLeave }: Props) {
   const waiting = useSyncExternalStore(subscribe, pendingCount, () => 0)
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-4 pb-8 pt-3">
+    <div className="mx-auto flex min-h-screen w-full max-w-lg flex-col px-4 pb-8 pt-3">
       <header className="mb-4 flex items-center justify-between gap-2">
-        <div className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2 text-ink hover:opacity-90">
           <img src="/icon.svg" alt="" className="h-9 w-9" />
-          <span className="text-xl font-extrabold">{t('app.name')}</span>
+          <span className="text-xl font-black tracking-tight">{t('app.name')}</span>
+        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            to="/teacher"
+            className="text-xs font-bold text-brand hover:bg-brand hover:text-white px-2.5 py-1.5 rounded-lg border border-brand/30 bg-brand-light/50 transition-colors"
+          >
+            Teacher 📊
+          </Link>
+          <LanguageSwitcher />
         </div>
-        <LanguageSwitcher />
       </header>
 
       {(!online || waiting > 0) && (
@@ -47,11 +56,11 @@ export function AppShell({ children, studentCode, onLeave }: Props) {
 
       {studentCode && (
         <div className="mb-3 flex items-center justify-between text-sm">
-          <span className="rounded-full bg-white px-3 py-1 font-bold shadow-sm" data-testid="header-student-code">
-            {studentCode}
+          <span className="rounded-full bg-white px-3 py-1 font-bold shadow-xs border border-ink/10 text-brand" data-testid="header-student-code">
+            Student: {studentCode}
           </span>
           {onLeave && (
-            <button type="button" onClick={onLeave} className="min-h-[44px] px-2 font-semibold text-ink/70 underline">
+            <button type="button" onClick={onLeave} className="min-h-[44px] px-2 font-semibold text-ink/70 hover:text-ink underline">
               {t('common.leave')}
             </button>
           )}

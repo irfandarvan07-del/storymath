@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import type { Marks } from '../api/types'
 import { tokenize } from '../lib/tokens'
 import type { Token } from '../lib/tokens'
@@ -12,8 +13,44 @@ interface Props {
 }
 
 export function StoryCard({ story, question, marks = {}, onTap }: Props) {
+  const [speaking, setSpeaking] = useState(false)
+
+  const speak = () => {
+    if (!('speechSynthesis' in window)) return
+    if (speaking) {
+      window.speechSynthesis.cancel()
+      setSpeaking(false)
+      return
+    }
+    window.speechSynthesis.cancel()
+    const utterance = new SpeechSynthesisUtterance(`${story}. ${question}`)
+    utterance.rate = 0.95
+    utterance.pitch = 1.05
+    utterance.onend = () => setSpeaking(false)
+    utterance.onerror = () => setSpeaking(false)
+    setSpeaking(true)
+    window.speechSynthesis.speak(utterance)
+  }
+
   return (
-    <div className="card space-y-3" data-testid="story-card">
+    <div className="card space-y-3 relative" data-testid="story-card">
+      <div className="flex items-center justify-between pb-1 border-b border-ink/5">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-ink/50">Word Problem</span>
+        {'speechSynthesis' in window && (
+          <button
+            type="button"
+            onClick={speak}
+            className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border transition-colors ${
+              speaking
+                ? 'bg-amber-100 border-amber-300 text-amber-800 animate-pulse'
+                : 'bg-white border-ink/15 text-ink/70 hover:border-brand hover:text-brand'
+            }`}
+            title="Read story aloud"
+          >
+            <span>{speaking ? '🔊 Speaking...' : '🔈 Read Aloud'}</span>
+          </button>
+        )}
+      </div>
       <Words tokens={tokenize(story, 's')} marks={marks} onTap={onTap} />
       <Words tokens={tokenize(question, 'q')} marks={marks} onTap={onTap} strong />
     </div>

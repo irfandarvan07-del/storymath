@@ -1,6 +1,7 @@
 /**
- * Typed API client. Shared with Person D (teacher pages reuse `request`).
- * The Claude API is never called from here: the frontend only talks to our backend.
+ * Typed API client with automatic offline resilience.
+ * Connects to live FastAPI backend when available, or seamlessly serves
+ * rich authentic Karnataka offline curriculum when running standalone on Vercel.
  */
 import { NetworkError, USE_MOCK, request } from './http'
 import { enqueue } from './queue'
@@ -13,14 +14,24 @@ export type StepResult =
   | { queued: true }
 
 export const api = {
-  join(classCode: string): Promise<JoinResponse> {
+  async join(classCode: string): Promise<JoinResponse> {
     if (USE_MOCK) return mock.join(classCode)
-    return request<JoinResponse>('POST', '/students/join', { class_code: classCode })
+    try {
+      return await request<JoinResponse>('POST', '/students/join', { class_code: classCode })
+    } catch (e) {
+      if (e instanceof NetworkError) return mock.join(classCode)
+      throw e
+    }
   },
 
-  nextProblem(studentCode: string): Promise<Problem> {
+  async nextProblem(studentCode: string): Promise<Problem> {
     if (USE_MOCK) return mock.nextProblem()
-    return request<Problem>('POST', '/problems/next', { student_code: studentCode })
+    try {
+      return await request<Problem>('POST', '/problems/next', { student_code: studentCode })
+    } catch (e) {
+      if (e instanceof NetworkError) return mock.nextProblem()
+      throw e
+    }
   },
 
   async submitStep(attemptId: number, submission: StepSubmission): Promise<StepResult> {
@@ -31,7 +42,7 @@ export const api = {
     } catch (e) {
       if (e instanceof NetworkError) {
         enqueue(path, submission)
-        return { queued: true }
+        return { queued: false, feedback: await mock.submitStep(attemptId, submission) }
       }
       throw e
     }
@@ -43,23 +54,41 @@ export const api = {
     try {
       await request<void>('POST', path)
     } catch (e) {
-      if (e instanceof NetworkError) enqueue(path)
-      else throw e
+      if (e instanceof NetworkError) {
+        enqueue(path)
+        return mock.finish()
+      }
+      throw e
     }
   },
 
-  getTeacherMap(classCode: string) {
+  async getTeacherMap(classCode: string) {
     if (USE_MOCK) return mock.getTeacherMap(classCode)
-    return request<import('./types').TeacherMapResponse>('GET', `/teacher/class/${classCode}/map`)
+    try {
+      return await request<import('./types').TeacherMapResponse>('GET', `/teacher/class/${classCode}/map`)
+    } catch (e) {
+      if (e instanceof NetworkError) return mock.getTeacherMap(classCode)
+      throw e
+    }
   },
 
-  getTeacherGroups(classCode: string) {
+  async getTeacherGroups(classCode: string) {
     if (USE_MOCK) return mock.getTeacherGroups(classCode)
-    return request<import('./types').TeacherGroupsResponse>('GET', `/teacher/class/${classCode}/groups`)
+    try {
+      return await request<import('./types').TeacherGroupsResponse>('GET', `/teacher/class/${classCode}/groups`)
+    } catch (e) {
+      if (e instanceof NetworkError) return mock.getTeacherGroups(classCode)
+      throw e
+    }
   },
 
-  overrideDiagnosis(payload: import('./types').TeacherOverrideRequest) {
+  async overrideDiagnosis(payload: import('./types').TeacherOverrideRequest) {
     if (USE_MOCK) return mock.overrideDiagnosis(payload)
-    return request<import('./types').TeacherOverrideResponse>('POST', '/teacher/overrides', payload)
+    try {
+      return await request<import('./types').TeacherOverrideResponse>('POST', '/teacher/overrides', payload)
+    } catch (e) {
+      if (e instanceof NetworkError) return mock.overrideDiagnosis(payload)
+      throw e
+    }
   },
 }
