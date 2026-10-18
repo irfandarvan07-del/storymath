@@ -161,6 +161,32 @@
       "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
       "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
       "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    },
+    {
+      "template_id": "share_equal_01",
+      "interest": "cricket",
+      "numbers": {
+        "total": 84,
+        "groups": 12
+      },
+      "story": "A coach received 84 cricket practice balls to distribute across 12 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 12 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
+    },
+    {
+      "template_id": "share_equal_01",
+      "interest": "cricket",
+      "numbers": {
+        "total": 84,
+        "groups": 12
+      },
+      "story": "A coach received 84 cricket practice balls to distribute across 12 training nets. Every training net received the exact same share for fielding practice.",
+      "question": "How many practice balls were allocated to each of the 12 nets?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
     }
   ],
   "share_equal_02:festivals": [
@@ -576,6 +602,19 @@
       "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
       "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
       "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    },
+    {
+      "template_id": "groups_equal_01",
+      "interest": "default",
+      "numbers": {
+        "groups": 9,
+        "per_group": 13
+      },
+      "story": "The school art club set up 9 supply tables with 13 pedas laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many pedas were laid out across all 9 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
     }
   ],
   "perimeter_01:default": [
@@ -733,6 +772,36 @@
       "hint_1": "Are you measuring the outer boundary path around the rectangle, or the flat surface inside?",
       "hint_2": "Draw a rectangle and label all four outer sides with their dimensions.",
       "hint_3": "For instance, a rectangle with length 7 m and width 3 m has perimeter 2 * (7 + 3) = 20 meters. Use the same perimeter formula."
+    }
+  ],
+  "groups_equal_03:default": [
+    {
+      "template_id": "groups_equal_03",
+      "interest": "default",
+      "numbers": {
+        "groups": 11,
+        "per_group": 7
+      },
+      "story": "The school art club set up 11 supply tables with 7 kabaddi laid out on each table. The monitors ensured every table had the exact same count.",
+      "question": "How many kabaddi were laid out across all 11 tables in total?",
+      "hint_1": "Are multiple sets of the same size being counted together, or is one quantity being separated?",
+      "hint_2": "Draw a visual diagram showing each equal group or use repeated equal jumps on a number line.",
+      "hint_3": "For instance, if there are 3 trays with 5 snacks on each tray, there are 3 * 5 = 15 snacks in all. Follow the same multiplication step."
+    }
+  ],
+  "share_equal_02:default": [
+    {
+      "template_id": "share_equal_02",
+      "interest": "default",
+      "numbers": {
+        "groups": 10,
+        "total": 60
+      },
+      "story": "During the annual sports day festival, teachers arranged 60 pens to distribute equally to 10 classrooms. Everyone was excited to receive an equal portion.",
+      "question": "How many pens did each of the 10 classrooms receive?",
+      "hint_1": "Are the items being split into separate equal shares, or are they being joined together into one pile?",
+      "hint_2": "Draw a bar model or group boxes showing the total quantity partitioned into equal parts.",
+      "hint_3": "For instance, if 3 children share 15 items equally, each gets 15 / 3 = 5 items. Use the same division method for your problem."
     }
   ]
 }

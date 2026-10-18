@@ -94,3 +94,28 @@ class StepEventModel(Base):
     ts = Column(DateTime, default=datetime.utcnow, nullable=False)
 
     attempt = relationship("AttemptModel", back_populates="step_events")
+
+
+class StudentUserModel(Base):
+    __tablename__ = "student_users"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    username = Column(String(100), unique=True, index=True, nullable=False)
+    password_hash = Column(String(255), nullable=False)
+    school = Column(String(255), nullable=False)
+    class_level = Column(String(50), nullable=False)
+    section = Column(String(50), nullable=False)
+    roll_number = Column(String(50), nullable=False)
+    class_code = Column(String(50), nullable=False)
+    student_code = Column(String(50), nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
+
+
+class TeacherLogModel(Base):
+    __tablename__ = "teacher_logs"
+
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    action = Column(String(50), nullable=False)
+    teacher_username = Column(String(100), nullable=False)
+    ts = Column(DateTime, default=datetime.utcnow, nullable=False)
+    details = Column(Text, nullable=True)

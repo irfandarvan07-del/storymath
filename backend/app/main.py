@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import CORS_ORIGINS, DEBUG
 from app.database import Base, engine
 from app.engine.loader import registry
-from app.routes import attempts, problems, students, teacher
+from app.routes import attempts, auth, problems, students, teacher
 
 
 @asynccontextmanager
@@ -36,6 +36,7 @@ app.add_middleware(
 )
 
 # Register routers
+app.include_router(auth.router)
 app.include_router(students.router)
 app.include_router(problems.router)
 app.include_router(attempts.router)

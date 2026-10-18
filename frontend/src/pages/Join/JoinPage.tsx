@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { api } from '../../api'
 import { AppShell } from '../../components/AppShell'
 import { saveStudent } from '../../lib/session'
+import { auth, StudentProfile } from '../../lib/auth'
 
 interface Props {
   onJoined: (studentCode: string) => void
@@ -20,28 +21,55 @@ const THEME_CHIPS = [
 
 export function JoinPage({ onJoined }: Props) {
   const { t } = useTranslation()
-  const [classCode, setClassCode] = useState('CLASS-6A')
+  const navigate = useNavigate()
+  const [profile, setProfile] = useState<StudentProfile | null>(null)
+  const [classCode, setClassCode] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [studentCode, setStudentCode] = useState<string | null>(null)
 
+  useEffect(() => {
+    const session = auth.getSession()
+    if (!session || session.role !== 'student' || !session.student) {
+      // Must login first
+      navigate('/login')
+      return
+    }
+    setProfile(session.student)
+    setClassCode(session.student.classCode)
+  }, [navigate])
+
   const join = async (overrideCode?: string) => {
-    const code = (overrideCode || classCode).trim().toUpperCase()
-    if (!code || busy) return
-    setBusy(true)
+    const inputCode = (overrideCode || classCode).trim().toUpperCase()
+    if (!inputCode || busy) return
     setError(null)
+
+    // Strict security check: must match registered class code
+    if (profile && inputCode !== profile.classCode) {
+      setError(
+        `Class Code Mismatch! Your account is registered in Class ${profile.classLevel}${profile.section} (${profile.school}). You can only take tests with your assigned code '${profile.classCode}'.`
+      )
+      return
+    }
+
+    setBusy(true)
     try {
-      const res = await api.join(code)
-      saveStudent(res.student_code)
-      setStudentCode(res.student_code)
+      const res = await api.join(inputCode)
+      const finalCode = profile?.studentCode || res.student_code
+      saveStudent(finalCode)
+      setStudentCode(finalCode)
     } catch {
-      // In case of any issue, create a graceful anonymous student code
-      const fallbackCode = `S-${1000 + Math.floor(Math.random() * 9000)}`
-      saveStudent(fallbackCode)
-      setStudentCode(fallbackCode)
+      const finalCode = profile?.studentCode || `S-${1000 + Math.floor(Math.random() * 9000)}`
+      saveStudent(finalCode)
+      setStudentCode(finalCode)
     } finally {
       setBusy(false)
     }
+  }
+
+  const handleLogout = () => {
+    auth.clearSession()
+    navigate('/login')
   }
 
   if (studentCode) {
@@ -53,12 +81,14 @@ export function JoinPage({ onJoined }: Props) {
           </div>
           <div className="space-y-1">
             <h1 className="text-2xl font-extrabold text-ink">{t('join.welcomeTitle')}</h1>
-            <p className="text-xs uppercase tracking-wider text-ink/60">Anonymous Minor-Safe Profile</p>
+            <p className="text-xs uppercase tracking-wider text-ink/60">
+              Verified Student: {profile?.username} • Class {profile?.classLevel}{profile?.section}
+            </p>
           </div>
 
           <div className="rounded-2xl border border-ink/10 bg-brand-light/40 p-4">
             <p className="text-xs font-bold uppercase tracking-wider text-ink/70">{t('join.yourCode')}</p>
-            <p className="text-4xl font-black tracking-widest text-brand" data-testid="student-code">
+            <p className="text-4xl font-black tracking-widest text-brand font-mono" data-testid="student-code">
               {studentCode}
             </p>
           </div>
@@ -81,20 +111,46 @@ export function JoinPage({ onJoined }: Props) {
   return (
     <AppShell>
       <div className="space-y-4">
+        {/* Student Session Header */}
+        {profile && (
+          <div className="flex items-center justify-between bg-white px-4 py-2.5 rounded-2xl border border-ink/10 text-xs">
+            <div className="truncate">
+              <span className="font-bold text-ink">👤 {profile.username}</span>
+              <span className="text-ink/60 ml-1.5">({profile.school})</span>
+            </div>
+            <button
+              type="button"
+              onClick={handleLogout}
+              className="text-rose-600 font-bold hover:underline ml-2"
+            >
+              Sign Out
+            </button>
+          </div>
+        )}
+
         {/* Main Join Card */}
         <div className="card space-y-4 py-6">
-          <div className="space-y-1.5 text-center">
+          <div className="space-y-1 text-center">
             <span className="inline-block rounded-full bg-sun-light px-3 py-1 text-xs font-black tracking-wide text-ink uppercase">
               Class 5–7 Maths • Karnataka
             </span>
             <h1 className="text-2xl font-black text-ink">{t('join.title')}</h1>
-            <p className="text-sm text-ink/70">Same maths structure. Stories from your world.</p>
+            <p className="text-xs text-ink/70">
+              Enter your assigned class code to begin your personalized problem set.
+            </p>
           </div>
 
           <label className="block space-y-1.5">
-            <span className="text-xs font-bold uppercase tracking-wider text-ink/70">
-              {t('join.codeLabel')}
-            </span>
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-wider text-ink/70">
+                {t('join.codeLabel')}
+              </span>
+              {profile && (
+                <span className="text-[11px] font-bold text-brand">
+                  Assigned Code: {profile.classCode}
+                </span>
+              )}
+            </div>
             <input
               data-testid="class-code"
               type="text"
@@ -104,34 +160,36 @@ export function JoinPage({ onJoined }: Props) {
               spellCheck={false}
               maxLength={12}
               value={classCode}
-              placeholder={t('join.codePlaceholder')}
+              placeholder="e.g. CLASS-4C"
               onChange={(e) => setClassCode(e.target.value.replace(/[^a-zA-Z0-9-]/g, ''))}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') void join()
               }}
-              className="min-h-[58px] w-full rounded-2xl border-2 border-ink/20 bg-white px-4 text-center text-2xl font-black uppercase tracking-widest text-ink focus:border-brand focus:outline-hidden"
+              className="min-h-[58px] w-full rounded-2xl border-2 border-ink/20 bg-white px-4 text-center text-2xl font-black uppercase tracking-widest text-ink focus:border-brand focus:outline-hidden font-mono"
             />
           </label>
 
-          {/* Quick Demo Class Chip */}
-          <div className="flex items-center justify-between text-xs font-medium">
-            <span className="text-ink/60">Demo Cohort:</span>
-            <button
-              type="button"
-              onClick={() => {
-                setClassCode('CLASS-6A')
-                void join('CLASS-6A')
-              }}
-              className="font-bold text-brand hover:underline"
-            >
-              ⚡ Quick Start as Student (CLASS-6A)
-            </button>
-          </div>
+          {/* Quick chip to fill assigned code */}
+          {profile && (
+            <div className="flex items-center justify-between text-xs font-medium">
+              <span className="text-ink/60">Registered Class:</span>
+              <button
+                type="button"
+                onClick={() => {
+                  setClassCode(profile.classCode)
+                  void join(profile.classCode)
+                }}
+                className="font-bold text-brand hover:underline font-mono"
+              >
+                ⚡ Use My Code ({profile.classCode})
+              </button>
+            </div>
+          )}
 
           {error && (
-            <p className="rounded-xl bg-sun-light px-3 py-2 text-sm font-semibold" role="alert" data-testid="join-error">
-              {error}
-            </p>
+            <div className="rounded-xl bg-rose-50 border border-rose-200 p-3 text-xs font-semibold text-rose-800" role="alert">
+              ⚠ {error}
+            </div>
           )}
 
           <button
@@ -141,7 +199,7 @@ export function JoinPage({ onJoined }: Props) {
             disabled={busy || !classCode.trim()}
             onClick={() => void join()}
           >
-            {busy ? t('join.joining') : t('join.button')}
+            {busy ? 'Validating Class Code...' : 'Enter Class Test →'}
           </button>
         </div>
 
@@ -172,7 +230,7 @@ export function JoinPage({ onJoined }: Props) {
             to="/teacher"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-brand hover:underline"
           >
-            <span>Are you a Teacher or Evaluator? Open Teacher Heatmap</span>
+            <span>Are you a Teacher? Open Global Teacher Portal</span>
             <span>→</span>
           </Link>
         </div>
