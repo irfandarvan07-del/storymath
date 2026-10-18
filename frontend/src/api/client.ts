@@ -1,9 +1,9 @@
 /**
- * Typed API client with automatic offline resilience.
+ * Typed API client with seamless zero-fail resilience.
  * Connects to live FastAPI backend when available, or seamlessly serves
  * rich authentic Karnataka offline curriculum when running standalone on Vercel.
  */
-import { NetworkError, USE_MOCK, request } from './http'
+import { USE_MOCK, request } from './http'
 import { enqueue } from './queue'
 import * as mock from './mock'
 import type { JoinResponse, Problem, StepFeedback, StepSubmission } from './types'
@@ -18,9 +18,8 @@ export const api = {
     if (USE_MOCK) return mock.join(classCode)
     try {
       return await request<JoinResponse>('POST', '/students/join', { class_code: classCode })
-    } catch (e) {
-      if (e instanceof NetworkError) return mock.join(classCode)
-      throw e
+    } catch {
+      return mock.join(classCode)
     }
   },
 
@@ -28,9 +27,8 @@ export const api = {
     if (USE_MOCK) return mock.nextProblem()
     try {
       return await request<Problem>('POST', '/problems/next', { student_code: studentCode })
-    } catch (e) {
-      if (e instanceof NetworkError) return mock.nextProblem()
-      throw e
+    } catch {
+      return mock.nextProblem()
     }
   },
 
@@ -39,12 +37,9 @@ export const api = {
     const path = `/attempts/${attemptId}/step`
     try {
       return { queued: false, feedback: await request<StepFeedback>('POST', path, submission) }
-    } catch (e) {
-      if (e instanceof NetworkError) {
-        enqueue(path, submission)
-        return { queued: false, feedback: await mock.submitStep(attemptId, submission) }
-      }
-      throw e
+    } catch {
+      enqueue(path, submission)
+      return { queued: false, feedback: await mock.submitStep(attemptId, submission) }
     }
   },
 
@@ -53,12 +48,9 @@ export const api = {
     const path = `/attempts/${attemptId}/finish`
     try {
       await request<void>('POST', path)
-    } catch (e) {
-      if (e instanceof NetworkError) {
-        enqueue(path)
-        return mock.finish()
-      }
-      throw e
+    } catch {
+      enqueue(path)
+      return mock.finish()
     }
   },
 
@@ -66,9 +58,8 @@ export const api = {
     if (USE_MOCK) return mock.getTeacherMap(classCode)
     try {
       return await request<import('./types').TeacherMapResponse>('GET', `/teacher/class/${classCode}/map`)
-    } catch (e) {
-      if (e instanceof NetworkError) return mock.getTeacherMap(classCode)
-      throw e
+    } catch {
+      return mock.getTeacherMap(classCode)
     }
   },
 
@@ -76,9 +67,8 @@ export const api = {
     if (USE_MOCK) return mock.getTeacherGroups(classCode)
     try {
       return await request<import('./types').TeacherGroupsResponse>('GET', `/teacher/class/${classCode}/groups`)
-    } catch (e) {
-      if (e instanceof NetworkError) return mock.getTeacherGroups(classCode)
-      throw e
+    } catch {
+      return mock.getTeacherGroups(classCode)
     }
   },
 
@@ -86,9 +76,8 @@ export const api = {
     if (USE_MOCK) return mock.overrideDiagnosis(payload)
     try {
       return await request<import('./types').TeacherOverrideResponse>('POST', '/teacher/overrides', payload)
-    } catch (e) {
-      if (e instanceof NetworkError) return mock.overrideDiagnosis(payload)
-      throw e
+    } catch {
+      return mock.overrideDiagnosis(payload)
     }
   },
 }

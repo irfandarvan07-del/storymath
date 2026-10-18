@@ -30,5 +30,13 @@ export default defineConfig({
       },
     }),
   ],
-  server: { port: 5173 },
+  server: {
+    port: 5173,
+    proxy: {
+      '/students': 'http://127.0.0.1:8000',
+      '/problems': 'http://127.0.0.1:8000',
+      '/attempts': 'http://127.0.0.1:8000',
+      '/teacher': 'http://127.0.0.1:8000',
+    },
+  },
 })

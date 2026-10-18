@@ -44,7 +44,7 @@ class TemplateRegistry:
         for filepath in self.templates_dir.glob("*.yaml"):
             with open(filepath, "r", encoding="utf-8") as f:
                 data = yaml.safe_load(f)
-                if not data:
+                if not data or not isinstance(data, dict):
                     continue
                 template = TemplateSchema(**data)
                 self._templates[template.id] = template
