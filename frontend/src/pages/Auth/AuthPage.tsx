@@ -271,21 +271,8 @@ export function AuthPage() {
                   disabled={stuLoginBusy}
                   className="btn-primary w-full py-3"
                 >
-                  {stuLoginBusy ? 'Signing In...' : 'Sign In as Student →'}
+                  {stuLoginBusy ? 'Signing In via Supabase...' : 'Sign In as Student →'}
                 </button>
-
-                <div className="pt-2 text-center">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setStuLoginUser('student_demo')
-                      setStuLoginPass('Pass1234')
-                    }}
-                    className="text-xs font-bold text-brand hover:underline"
-                  >
-                    ⚡ Auto-fill Demo Student (student_demo / Pass1234)
-                  </button>
-                </div>
               </form>
             )}
 
